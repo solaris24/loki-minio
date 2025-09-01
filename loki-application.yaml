@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://grafana.github.io/helm-charts
-    chart: loki
-    targetRevision: 6.28.0
+    repoURL: https://github.com/solaris24/loki-minio.git
+    targetRevision: feature/argo
+    path: loki
     helm:
       valueFiles:
-        - loki/values-argo.yaml
+        - values-argo.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: loki
