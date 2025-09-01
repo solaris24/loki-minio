@@ -11,6 +11,9 @@ loki:
 
   auth_enabled: false
 
+  storage:
+    type: s3
+
   readinessProbe:
     httpGet:
       path: /ready
