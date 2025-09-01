@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki-minio
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: loki
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 6.28.0  # Specifying the chart version
+    helm:
+      releaseName: loki
+      valueFiles:
+        - $values/values-argo.yaml
+  sources:
+    - repoURL: https://github.com/solaris24/loki-minio.git
+      targetRevision: feature/argo
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: loki
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
