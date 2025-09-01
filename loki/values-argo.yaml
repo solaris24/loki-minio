@@ -57,10 +57,19 @@ loki:
           period: 24h
 
   storage:
+    type: s3
     bucketNames:
       chunks: chunks
       ruler: ruler
       admin: admin
+    s3:
+      s3: null
+      endpoint: http://loki-minio:9000
+      region: us-east-1
+      secretAccessKey: minioadmin
+      accessKeyId: minioadmin
+      s3ForcePathStyle: true
+      insecure: true
 
   compactor:
     retention_enabled: false
