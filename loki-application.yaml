@@ -11,7 +11,7 @@ spec:
     path: loki
     helm:
       valueFiles:
-        - values-argo.yaml
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: loki
