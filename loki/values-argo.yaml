@@ -44,6 +44,7 @@ loki:
     enabled: true
 
   commonConfig:
+    path_prefix: /var/loki
     replication_factor: 1
 
   schemaConfig:
