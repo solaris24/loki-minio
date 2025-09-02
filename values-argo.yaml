@@ -100,7 +100,7 @@ minio:
     policy: none
     purge: false
   persistence:
-    size: 1Gi
+    size: 2Gi
   resources:
     requests:
       cpu: 100m
